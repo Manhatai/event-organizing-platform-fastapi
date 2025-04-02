@@ -1,0 +1,39 @@
+Zależności w bazie danych:
+1. Region X nie może być usunięty póki jest przypisany do istniejącego Building Y
+2. Building X nie może być usunięty póki jest przypisany do istniejącego Event lub Stand Y
+3. Category X, Reservation X lub User X nie może być usunięty póki jest przypisany do istniejącego Stand Y
+4. Event lub Stand nie ma żadnych zależności, więc może być usunięty kiedykolwiek.
+
+
+
+Jak zrobić migrację manualnie lokalnie?
+1. cd \nowatorskiProjektGrupowy\backend
+2. alembic revision --autogenerate -m "Initial migration"
+3. alembic upgrade head
+
+
+Jak odpalic docker-compose?:
+0,1. Upewnij sie ze masz poprawnie zainstalowany i włączony docker desktop
+
+[Pierwszy terminal vsc (powershell):]
+1. cd <folder_nadrzedny_ponad_backend>
+2. docker-compose up --build
+[Drugi terminal vsc (powershell):]
+3. docker ps -a
+4. docker exec -it <id_kontenera (nazwa powinna byc: nowatorskiprojektgrupowy-backend)> bash
+5. cd /code/backend
+6. alembic revision --autogenerate -m "Initial migration"
+7. alembic upgrade head
+7,1. Od teraz baza danych i api będą działać za każdym razem po odpaleniu 'docker-compose up'. Aby dodać/edytować dane,
+skorzystaj z pliku 'insomnia_requests' znajdującego się w 'backend/source/utils/requests_dump/' i załaduj go w insomnii.
+Nie trzeba robić kolejnych migracji przy odpalaniu docker compose. Przy dodawaniu rzeczy do bazy, pamiętaj o zależnościach,
+tzn. Nie możesz dodać building bez dodanego region, etc.
+7,2. Jesli powyzsze nie zadziala, uzyj 'crtl + c' na pierwszym terminalu i wpisz 'docker-compose down'. Teraz powtórz czynności, 
+tylko zamiast odpalać drugi terminal w vsc, włącz terminal powershell na windowsie (komendy nadal te same).
+
+
+Do poprawienia w przyszlosci:
+1. Optymalizacja alembica (auto migracje, kod env.py)
+2. Zmiana nazw kolumn w Stand i Event (2x eventBuildingId)
+3. Usunięcie zahardkodowanych post requestow
+4. Naprawa walidacji datetime przez pydantic dla event_schema i event_model

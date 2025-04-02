@@ -1,0 +1,870 @@
+type: collection.insomnia.rest/5.0
+name: NowatorskiProjektGrupowy
+meta:
+  id: wrk_93eff52a689d44ee95c9b76f85953fe8
+  created: 1742045911326
+  modified: 1742580661182
+collection:
+  - name: Get All Items Requests
+    meta:
+      id: fld_2abfbab6f7194ac586e3600cb2c7408f
+      created: 1742045971089
+      modified: 1742754259180
+      sortKey: -1742045971089
+    children:
+      - url: "{{ _.local.base_url }}/reservations"
+        name: All reservations
+        meta:
+          id: req_37ab1290044743d680dbbef42b7d7d40
+          created: 1742742688279
+          modified: 1743004408384
+          isPrivate: false
+          sortKey: -1742742688279
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/categories"
+        name: All categories
+        meta:
+          id: req_94af00d753034f77ac30563fb4813bbe
+          created: 1742742689576
+          modified: 1742754230295
+          isPrivate: false
+          sortKey: -1742742695678.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/regions"
+        name: All regions
+        meta:
+          id: req_d91857e1f28946d0bd13d7adc11b94ba
+          created: 1742742701781
+          modified: 1742746578092
+          isPrivate: false
+          sortKey: -1742742701781
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/stands"
+        name: All stands
+        meta:
+          id: req_4fb1b34ded0e4b62aad64e2a0ae3acfc
+          created: 1742750862436
+          modified: 1742985790762
+          isPrivate: false
+          sortKey: -1742750862436
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/events"
+        name: All events
+        meta:
+          id: req_6ee21d5932e447ff8e08ebdc61ab89bc
+          created: 1742750876398
+          modified: 1742750934464
+          isPrivate: false
+          sortKey: -1742750876398
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/buildings"
+        name: All buildings
+        meta:
+          id: req_d5a1150de58a42288501f0e37b069f17
+          created: 1742750878330
+          modified: 1743004907791
+          isPrivate: false
+          sortKey: -1742750878330
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Post Requests
+    meta:
+      id: fld_c940185379754c7eb511e5d36f2f1b91
+      created: 1742045996483
+      modified: 1742045996483
+      sortKey: -1742045996483
+    children:
+      - url: "{{ _.local.base_url }}/reservations"
+        name: Add new reservation
+        meta:
+          id: req_c9606c593aa24730adc017a3123a2010
+          created: 1742825655830
+          modified: 1742985077906
+          isPrivate: false
+          sortKey: -1742825655830
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"reservationTime": "32"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/categories"
+        name: Add new category
+        meta:
+          id: req_cf509ec028794555bc3a2fa3265add4e
+          created: 1742825663891
+          modified: 1742838389692
+          isPrivate: false
+          sortKey: -1742825663891
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"standCategory": "Food Truckers"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/regions"
+        name: Add new region
+        meta:
+          id: req_52ac4ed875864969a2b13bd27bd9379c
+          created: 1742825665325
+          modified: 1742984526403
+          isPrivate: false
+          sortKey: -1742825665325
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"buildingRegion": "NAT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/stands"
+        name: Add new stand
+        meta:
+          id: req_4a9d7c25491e4770afc84ccb37d3a877
+          created: 1742825666486
+          modified: 1742985852766
+          isPrivate: false
+          sortKey: -1742825666486
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"name": "Stanowisko abc",
+            		"standNumber": 314,
+            		"reservationPrice": 333,
+            		"categoryId": 2,
+            		"bookedByUserId": null,
+            		"user": null,
+            		"eventBuildingId": 2,
+            		"reservationPeriodId": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/cate"
+        name: Add new event
+        meta:
+          id: req_1071e5ed1748490ca9e677979eb61b13
+          created: 1742825667729
+          modified: 1742838381508
+          isPrivate: false
+          sortKey: -1742825667729
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Dzien Marchewki",
+            	"eventStartDate": "2025-01-23T08:00:00",
+            	"isActive": false,
+            	"eventBuildingId": 2,
+            	"hasOpenStands": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/buildings"
+        name: Add new building
+        meta:
+          id: req_d7e08d2105a240aa9f653f7099b5f724
+          created: 1742825668860
+          modified: 1742827920463
+          isPrivate: false
+          sortKey: -1742825668860
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"name": "Shopping Mall",
+            		"addressStreet": "test1",
+            		"addressPostCode": "bla",
+            		"regionId": 1,
+            		"hasOpenStands": true
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Put Requests
+    meta:
+      id: fld_98cccee052134764ac957fd3a7ebcb51
+      created: 1742046003655
+      modified: 1742825677510
+      sortKey: -1742046003655
+    children:
+      - url: "{{ _.local.base_url }}/reservations/6"
+        name: Edit a reservation
+        meta:
+          id: req_ae83b78b3be24c9c96abbe2d2b92ba41
+          created: 1742825671358
+          modified: 1742985099979
+          isPrivate: false
+          sortKey: -1742825671358
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"reservationTime": "36"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/categories/6"
+        name: Edit a category
+        meta:
+          id: req_269745860b774b339b9c1524bb9a638b
+          created: 1742825675513
+          modified: 1742838431830
+          isPrivate: false
+          sortKey: -1742825675513
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"standCategory": "Mamma mia"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/regions/6"
+        name: Edit a region
+        meta:
+          id: req_b454c8ff44d346a18308a3784f347ab8
+          created: 1742825679616
+          modified: 1742984552767
+          isPrivate: false
+          sortKey: -1742825679616
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"buildingRegion": "NATTT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/stands/3"
+        name: Edit a stand
+        meta:
+          id: req_9a6162e5a3fa473f96f46c4de51efc43
+          created: 1742825680783
+          modified: 1742985871846
+          isPrivate: false
+          sortKey: -1742825680783
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"name": "Stanowisko abddc",
+            		"standNumber": 314,
+            		"reservationPrice": 333,
+            		"categoryId": 2,
+            		"bookedByUserId": null,
+            		"user": null,
+            		"eventBuildingId": 2,
+            		"reservationPeriodId": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/events/2"
+        name: Edit an event
+        meta:
+          id: req_e4df8463bb1c4f688b77139a5475be03
+          created: 1742825681957
+          modified: 1742837469484
+          isPrivate: false
+          sortKey: -1742825681957
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Dzien Słonia",
+            	"eventStartDate": "2025-01-23T08:00:00",
+            	"isActive": false,
+            	"eventBuildingId": 2,
+            	"hasOpenStands": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/buildings/10"
+        name: Edit a building
+        meta:
+          id: req_4f51d9af61e249adad4c7df5a54c29b6
+          created: 1742825683171
+          modified: 1742837382301
+          isPrivate: false
+          sortKey: -1742825683171
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            	"name": "Shopping Mallll",
+            	"addressStreet": "test1",
+            	"addressPostCode": "bla",
+            	"regionId": 2,
+            	"hasOpenStands": false
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Delete Requests
+    meta:
+      id: fld_10802ab83fe440eb93a32a5932a4114b
+      created: 1742046010016
+      modified: 1742046010016
+      sortKey: -1742046010016
+    children:
+      - url: "{{ _.local.base_url }}/reservations/6"
+        name: Delete a reservation
+        meta:
+          id: req_b96ec1f919ef43fe8b35fdfe76112624
+          created: 1742825684862
+          modified: 1742985111981
+          isPrivate: false
+          sortKey: -1742825684862
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/categories/1"
+        name: Delete a category
+        meta:
+          id: req_d4a4dc71259b4e958b2985a7d519f303
+          created: 1742825686064
+          modified: 1742838676224
+          isPrivate: false
+          sortKey: -1742825686064
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/regions/6"
+        name: Delete a region
+        meta:
+          id: req_da3cf06c4ae74611b824c4ce7359ef7c
+          created: 1742825687184
+          modified: 1742984643977
+          isPrivate: false
+          sortKey: -1742825687184
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/stands/3"
+        name: Delete a stand
+        meta:
+          id: req_2a35ba510a0244a39f6b8ef405ffb36d
+          created: 1742825688219
+          modified: 1742985892929
+          isPrivate: false
+          sortKey: -1742825688219
+        method: DELETE
+        body:
+          mimeType: application/json
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/events/4"
+        name: Delete an event
+        meta:
+          id: req_9c205f1bb4014756a5e04a8082462d32
+          created: 1742825689245
+          modified: 1742837488365
+          isPrivate: false
+          sortKey: -1742825689245
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/buildings/2"
+        name: Delete a building
+        meta:
+          id: req_a8d1e07fc8df4ab0b21e81566418832c
+          created: 1742825690501
+          modified: 1742837234472
+          isPrivate: false
+          sortKey: -1742825690501
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Get Single Item Requests
+    meta:
+      id: fld_dc6c2d68ff0d48d4a60f9cdc8201ad3f
+      created: 1742754250998
+      modified: 1742754343583
+      sortKey: -1742045983786
+    children:
+      - url: "{{ _.local.base_url }}/categories/1"
+        name: Get a single category
+        meta:
+          id: req_0e99548c41634686aedce2ec299df53c
+          created: 1742754289441
+          modified: 1742755983624
+          isPrivate: false
+          sortKey: -1742754289441
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/regions/1"
+        name: Get a single region
+        meta:
+          id: req_4dd8bad7f2cf4a82869c4a5ce989c5f7
+          created: 1742754291239
+          modified: 1742755977220
+          isPrivate: false
+          sortKey: -1742754291239
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/stands/1"
+        name: Get a single stand
+        meta:
+          id: req_4ea4ba64b70d4a1a83a573a5ecd82e6d
+          created: 1742754292460
+          modified: 1742755971354
+          isPrivate: false
+          sortKey: -1742754292460
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/events/1"
+        name: Get a single event
+        meta:
+          id: req_af850c4509b84f238a5e21e53bc7cc03
+          created: 1742754293897
+          modified: 1742755963286
+          isPrivate: false
+          sortKey: -1742754293897
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/buildings/10"
+        name: Get a single building
+        meta:
+          id: req_6218ed91457b459f8450d6593d7ebd72
+          created: 1742754298792
+          modified: 1742833751503
+          isPrivate: false
+          sortKey: -1742754298792
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}/reservations/1"
+        name: Get a single reservation
+        meta:
+          id: req_0d4d583b2a0549e5a7fed42f2c1b0ed2
+          created: 1742754347918
+          modified: 1742984910189
+          isPrivate: false
+          sortKey: -1742754289341
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Security requests
+    meta:
+      id: fld_5ee68e433d1f414eb2bb4558b35694e4
+      created: 1742825787608
+      modified: 1742825787608
+      sortKey: -1742825787608
+    children:
+      - url: "{{ _.local.base_url }}"
+        name: Register
+        meta:
+          id: req_2041e2c9269f44b6be1773f1f4eb0af5
+          created: 1742825790681
+          modified: 1742825962535
+          isPrivate: false
+          sortKey: -1742825790681
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.local.base_url }}"
+        name: Login
+        meta:
+          id: req_505d46e807b5446abc1b77d0e84f8614
+          created: 1742825792900
+          modified: 1742825958122
+          isPrivate: false
+          sortKey: -1742825792900
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Health check
+    meta:
+      id: fld_92a8170ef5fc4e34afbc1823e569bdc3
+      created: 1742991100728
+      modified: 1742991100728
+      sortKey: -1742991100728
+    children:
+      - url: "{{ _.local.base_url }}/"
+        name: Health check
+        meta:
+          id: req_7e610e3827b6422cad44b0c5775d8594
+          created: 1742991105393
+          modified: 1742991123931
+          isPrivate: false
+          sortKey: -1742991105393
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b3004a4f5893e14bcafeaacdec397e14b85aa967
+    created: 1742045911329
+    modified: 1742045911329
+environments:
+  name: Base Environment
+  meta:
+    id: env_b3004a4f5893e14bcafeaacdec397e14b85aa967
+    created: 1742045911328
+    modified: 1742048728261
+    isPrivate: false
+  subEnvironments:
+    - name: Local
+      meta:
+        id: env_98e4e5839958400081ac9985fd793e0e
+        created: 1742048819459
+        modified: 1743005088401
+        isPrivate: true
+        sortKey: 1742048819459
+      data:
+        local:
+          base_url: https://127.0.0.1:8000

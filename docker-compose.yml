@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eventappdb
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/source/Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      REST_API_DB_HOST: db
+      REST_API_DB_PORT: "5432"
+      REST_API_DB_NAME: eventappdb
+      REST_API_DB_LOGIN: postgres
+      REST_API_DB_PASSWORD: postgres
+      REST_API_SECRET_KEY: "118ca1e5-3c91-41e9-856d-268a53229b70"
+      REST_API_IS_DEBUG: ""
+      REST_API_ENV_NAME: ""
+      REST_API_LOCAL_TOKEN: ""
+
+volumes:
+  db_data:
