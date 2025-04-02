@@ -5,6 +5,7 @@ This repository contains the backend for an event organizing platform built with
 - **Robust Database Integration:** A fully fleshed-out database schema to manage events and related data.
 - **Multiple Controllers:** Organized endpoints to handle various aspects of the application's functionality.
 - **JWT Authentication:** Secure access through JSON Web Tokens (JWT) ensuring authenticated interactions.
+- **Docker and docker compose:** Makes running the project with docker and docker compose installed incredibly easy.
 
 Designed as part of a group project, this backend serves as a solid foundation for scalable event management applications.
 
