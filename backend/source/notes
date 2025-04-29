@@ -37,3 +37,34 @@ Do poprawienia w przyszlosci:
 2. Zmiana nazw kolumn w Stand i Event (2x eventBuildingId)
 3. Usunięcie zahardkodowanych post requestow
 4. Naprawa walidacji datetime przez pydantic dla event_schema i event_model
+5. zmienić nazwy id z encji na np. building_id
+6. zmienić nazwy tabel z bazy na snake_case z camelCase
+7. usunąć secrety z docker compose i dać je do .env
+8. dodać health check do docker compose
+9. ujednolicic styl pisania klas i funkcji (sprawdzić pep8)
+10. dodanie typow w parametrach gdzie nie ma (np. database_queries.py)
+
+Jak odpalic backend bez docker compose?
+1. zanim zaczniesz wchodzisz w psql i tworzysz baze danych o nazwie 'eventappdb', jak ci sie uda to wyskoczy ci komunikat 'CREATE DATABASE'
+2. robisz migracje manualnie lokalnie jak jest napisane w backend/source/notes
+3. w backend/source/utils/requests_dump masz insomnia_2025 costam costam
+4. logujesz sie do insomnii
+5. na panelu glownym klikasz import
+6. wrzucasz plik
+7. po odpaleniu api wchodzisz w folder health check, klikasz send, dziala = 👍, nie dziala to nie odpalilo
+sie api
+8. jak api dziala rejestrujesz sie w bazie danych poprzez body na endpoincie security requests/register:
+{
+    "login": "user",
+    "password": "abc123",
+    "isAdmin": false,
+    "isLocalUser": false
+}
+
+9. potem logujesz sie poprzez body na endpoincie security requests/register:
+{
+    "login": "user",
+    "password": "abc123"
+}
+
+10.jak uda ci sie zalogowac dostaniesz token JWT ktopry wklejasz w local > collection env > ołówek w kwadracie > token
