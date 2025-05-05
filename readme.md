@@ -6,6 +6,7 @@ This repository contains the backend for an event organizing platform built with
 - **Multiple Controllers:** Organized endpoints to handle various aspects of the application's functionality.
 - **JWT Authentication:** Secure access through JSON Web Tokens.
 - **Docker and docker compose:** Makes running the project with docker and docker compose installed very easy.
+- **Logging-to-file middleware**: For easy debugging
 
 # The database model:
 
