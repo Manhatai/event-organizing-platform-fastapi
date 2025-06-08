@@ -4,5 +4,6 @@ from pydantic import BaseModel
 
 
 class CategorySchema(BaseModel):
-    id: Optional[int] = None
-    standCategory: str
+    categoryId: Optional[int] = None
+    name: str
+    value: int

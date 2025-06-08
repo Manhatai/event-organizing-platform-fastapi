@@ -1,16 +1,15 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict
-from sqlalchemy import DateTime
+from pydantic import BaseModel
 
 from backend.source.infra.schemas.building_schema import BuildingSchema
 
 
 class EventSchema(BaseModel):
-    id: Optional[int] = None
+    eventId: Optional[int] = None
     name: str
-    eventStartDate: datetime
+    eventDate: datetime
     isActive: bool
-    eventBuildingId: int
+    buildingId: int
     building: Optional[BuildingSchema] = None

@@ -9,15 +9,15 @@ from backend.source.infra.schemas.user_schema import UserResponseSchema
 
 
 class StandSchema(BaseModel):
-    id: Optional[int] = None
+    standId: Optional[int] = None
     name: str
     standNumber: int
     reservationPrice: int
     categoryId: int
     category: Optional[CategorySchema] = None
-    bookedByUserId: int | None = None
+    userId: int | None = None
     user: Optional[UserResponseSchema] = None # do wywalenia pozniej
-    eventBuildingId: int
+    buildingId: int
     building: Optional[BuildingSchema] = None
-    reservationPeriodId: int | None = None
+    reservationId: int | None = None
     reservation: Optional[ReservationSchema] = None

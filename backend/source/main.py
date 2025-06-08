@@ -1,6 +1,6 @@
-import uvicorn
 from typing import Annotated
 
+import uvicorn
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 
@@ -10,8 +10,7 @@ from backend.source.apps.api.controllers.event_controller import event_router
 from backend.source.apps.api.controllers.region_controller import region_router
 from backend.source.apps.api.controllers.reservation_controller import reservation_router
 from backend.source.apps.api.controllers.stand_controller import stand_router
-from backend.source.apps.api.security.login import user_login_router
-from backend.source.apps.api.security.register import user_registration_router
+from backend.source.apps.api.controllers.user_controller import user_router
 from backend.source.infra.database.database_connection import engine
 from backend.source.utils.unexpected_exception_handler.global_catch import register_exception_handlers
 
@@ -21,14 +20,30 @@ def get_session():
         yield session
 
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 SessionDep = Annotated[Session, Depends(get_session)]
 
 app = FastAPI(title="EventAppBackend")
 register_exception_handlers(app)
 
-app.include_router(user_login_router)
-app.include_router(user_registration_router)
+origins = [
+    "http://localhost:4200",
+    "https://localhost:4200",
+]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(user_router, tags=["user"])
 app.include_router(reservation_router, tags=["reservations"])
 app.include_router(category_router, tags=["categories"])
 app.include_router(region_router, tags=["regions"])

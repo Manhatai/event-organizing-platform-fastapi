@@ -4,5 +4,6 @@ from pydantic import BaseModel
 
 
 class RegionSchema(BaseModel):
-    id: Optional[int] = None
-    buildingRegion: str
+    regionId: Optional[int] = None
+    name: str
+    value: int

@@ -19,21 +19,22 @@ async def get_all_regions(db: Session = Depends(get_db), user_details=Depends(to
 
 @region_router.get("/regions/{region_id}", response_model=RegionSchema, status_code=200)
 async def get_single_region(region_id: int, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> type[RegionModel]:
-    return query_single_item(db, RegionModel, region_id, 'Region')
+    return query_single_item(db, RegionModel, region_id, 'Region', primary_key_field='regionId')
 
 @region_router.post("/regions", response_model=RegionSchema, status_code=201)
 async def create_new_region(region: RegionSchema, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> RegionModel:
     new_region = RegionModel(
-        buildingRegion=region.buildingRegion
+        name=region.name,
+        value=region.value
     )
     return add_and_commit(db, new_region)
 
 @region_router.put("/regions/{region_id}", response_model=RegionSchema, status_code=200)
 async def update_region(region_id: int, update_data:RegionSchema, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> type[RegionModel] | None:
-    return update_record(db, RegionModel, update_data, region_id, 'Region')
+    return update_record(db, RegionModel, update_data, region_id, 'Region', primary_key_field='regionId')
 
 @region_router.delete("/regions/{region_id}", status_code=204)
 async def delete_region(region_id: int, db: Session = Depends(get_db), user_details=Depends(token_bearer)):
-    item = query_single_item(db, RegionModel, region_id, 'Region')
+    item = query_single_item(db, RegionModel, region_id, 'Region', primary_key_field='regionId')
     safe_delete_check(db, BuildingModel, region_id, 'regionId', 'Region', 'Building')
     return delete_and_commit(db, item)

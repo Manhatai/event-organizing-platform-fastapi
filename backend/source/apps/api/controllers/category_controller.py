@@ -19,21 +19,22 @@ async def get_all_categories(db: Session = Depends(get_db), user_details=Depends
 
 @category_router.get("/categories/{category_id}", response_model=CategorySchema, status_code=200)
 async def get_single_category(category_id: int, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> type[CategoryModel]:
-    return query_single_item(db, CategoryModel, category_id, 'Category')
+    return query_single_item(db, CategoryModel, category_id, 'Category', primary_key_field='categoryId')
 
 @category_router.post("/categories", response_model=CategorySchema, status_code=201)
 async def create_new_category(category: CategorySchema, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> CategoryModel:
     new_category = CategoryModel(
-        standCategory=category.standCategory
+        name=category.name,
+        value=category.value
     )
     return add_and_commit(db, new_category)
 
 @category_router.put("/categories/{category_id}", response_model=CategorySchema, status_code=200)
 async def update_category(category_id: int, update_data:CategorySchema, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> type[CategoryModel] | None:
-    return update_record(db, CategoryModel, update_data, category_id, 'Category')
+    return update_record(db, CategoryModel, update_data, category_id, 'Category', primary_key_field='categoryId')
 
 @category_router.delete("/categories/{category_id}", status_code=204)
 async def delete_category(category_id: int, db: Session = Depends(get_db), user_details=Depends(token_bearer)):
-    item = query_single_item(db, CategoryModel, category_id, 'Category')
+    item = query_single_item(db, CategoryModel, category_id, 'Category', primary_key_field='categoryId')
     safe_delete_check(db, StandModel, category_id, 'categoryId', 'Category', 'Stand')
     return delete_and_commit(db, item)

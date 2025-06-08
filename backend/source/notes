@@ -6,18 +6,20 @@ Zależności w bazie danych:
 
 
 
+
 Jak zrobić migrację manualnie lokalnie?
 1. cd \nowatorskiProjektGrupowy\backend
 2. alembic revision --autogenerate -m "Initial migration"
 3. alembic upgrade head
 
 
+
 Jak odpalic docker-compose?:
 0,1. Upewnij sie ze masz poprawnie zainstalowany i włączony docker desktop
-
 [Pierwszy terminal vsc (powershell):]
 1. cd <folder_nadrzedny_ponad_backend>
 2. docker-compose up --build
+
 [Drugi terminal vsc (powershell):]
 3. docker ps -a
 4. docker exec -it <id_kontenera (nazwa powinna byc: nowatorskiprojektgrupowy-backend)> bash
@@ -32,6 +34,7 @@ tzn. Nie możesz dodać building bez dodanego region, etc.
 tylko zamiast odpalać drugi terminal w vsc, włącz terminal powershell na windowsie (komendy nadal te same).
 
 
+
 Do poprawienia w przyszlosci:
 1. Optymalizacja alembica (auto migracje, kod env.py)
 2. Zmiana nazw kolumn w Stand i Event (2x eventBuildingId)
@@ -43,6 +46,8 @@ Do poprawienia w przyszlosci:
 8. dodać health check do docker compose
 9. ujednolicic styl pisania klas i funkcji (sprawdzić pep8)
 10. dodanie typow w parametrach gdzie nie ma (np. database_queries.py)
+
+
 
 Jak odpalic backend bez docker compose?
 1. zanim zaczniesz wchodzisz w psql i tworzysz baze danych o nazwie 'eventappdb', jak ci sie uda to wyskoczy ci komunikat 'CREATE DATABASE'

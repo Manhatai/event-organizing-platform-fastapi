@@ -18,26 +18,26 @@ async def get_all_stands(db: Session = Depends(get_db), user_details=Depends(tok
 
 @stand_router.get("/stands/{stand_id}", response_model=StandSchema, status_code=200)
 async def get_single_stand(stand_id: int, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> type[StandModel]:
-    return query_single_item(db, StandModel, stand_id, 'Stand')
+    return query_single_item(db, StandModel, stand_id, 'Stand', primary_key_field='standId')
 
 @stand_router.post("/stands", response_model=StandSchema, status_code=201)
 async def create_new_stand(stand: StandSchema, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> StandModel:
     new_stand = StandModel(
         name=stand.name,
         standNumber=stand.standNumber,
-        reservationPrice=stand.reservationPrice,
         categoryId=stand.categoryId,
-        bookedByUserId=stand.bookedByUserId,
-        eventBuildingId=stand.eventBuildingId,
-        reservationPeriodId=stand.reservationPeriodId
+        reservationPrice=stand.reservationPrice,
+        userId=stand.userId,
+        buildingId=stand.buildingId,
+        reservationId=stand.reservationId
     )
     return add_and_commit(db, new_stand)
 
 @stand_router.put("/stands/{stand_id}", response_model=StandSchema, status_code=200)
 async def update_stand(stand_id: int, update_data:StandSchema, db: Session = Depends(get_db), user_details=Depends(token_bearer)) -> type[StandModel] | None:
-    return update_record(db, StandModel, update_data, stand_id, 'Stand')
+    return update_record(db, StandModel, update_data, stand_id, 'Stand', primary_key_field='standId')
 
 @stand_router.delete("/stands/{stand_id}", status_code=204)
 async def delete_stand(stand_id: int, db: Session = Depends(get_db), user_details=Depends(token_bearer)):
-    item = query_single_item(db, StandModel, stand_id, 'Stand')
+    item = query_single_item(db, StandModel, stand_id, 'Stand', primary_key_field='standId')
     return delete_and_commit(db, item)
